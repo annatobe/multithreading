@@ -56,7 +56,7 @@ int main(int argc, char *argv[]){
     double duration = end - start;
     //aktueller Zaehlerstand
     int actual_counter = data_get_counter();
-    //erwarteter Zaehlerstand ohne verlorene Inkrementierun
+    //erwarteter Zaehlerstand ohne verlorene Inkrementierunge
     int expected_counter = threads * runs;
 
     printf("Threads: %d\n", threads);
