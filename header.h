@@ -13,7 +13,7 @@ typedef enum {
 
 //parser.c
 //extern Variablen werden in der main gebraucht2
-extern int runs;
+extern long long runs;
 extern bool activated;
 extern int threads;
 Results parse(int argc, char *argv[]);
@@ -21,7 +21,7 @@ Results parse(int argc, char *argv[]);
 //shared.c
 void data_init(bool active);
 void data_increment(void);
-int data_get_counter(void);
+long long data_get_counter(void);
 void data_destroy(void);
 
 //utils.c

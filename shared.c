@@ -3,8 +3,8 @@
 #include <pthread.h>
 
 static pthread_mutex_t mutex;
-static int counter;
-static bool use_mutex = false;
+static long long counter;
+static bool use_mutex = false;//initialis
 void data_init(bool active)
 {
     counter = 0;
@@ -30,7 +30,7 @@ void data_increment(void)
     }
 }
 
-int data_get_counter(void)
+long long data_get_counter(void)
 {
     return counter;
 }

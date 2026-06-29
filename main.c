@@ -3,10 +3,6 @@
 #include <stdlib.h>
 #include <pthread.h>
 
-#include <stdio.h>
-#include "header.h"
-#include <stdlib.h>
-#include <pthread.h>
 
 int main(int argc, char *argv[]){
     Results result = parse(argc, argv);
@@ -55,12 +51,12 @@ int main(int argc, char *argv[]){
     //berechnet Ausfuehrungszeit der Threads
     double duration = end - start;
     //aktueller Zaehlerstand
-    int actual_counter = data_get_counter();
+    long long actual_counter = data_get_counter();
     //erwarteter Zaehlerstand ohne verlorene Inkrementierunge
-    int expected_counter = threads * runs;
+    long long expected_counter = threads * runs;
 
     printf("Threads: %d\n", threads);
-    printf("Runs pro Thread: %d\n", runs);
+    printf("Runs pro Thread: %lld\n", runs);
     if (activated)
     {
         printf("Synchronisation: Mutex\n");
@@ -69,8 +65,8 @@ int main(int argc, char *argv[]){
     {
         printf("Keine Synchronisation\n");
     }
-    printf("Erwartete Durchlaeufe: %d\n", expected_counter);
-    printf("Tatsaechliche Durchlaeufe: %d\n", actual_counter);
+    printf("Erwartete Durchlaeufe: %lld\n", expected_counter);
+    printf("Tatsaechliche Durchlaeufe: %lld\n", actual_counter);
     printf("Ausfuehrungsdauer: %lf\n", duration);
 
     if (actual_counter == expected_counter)
@@ -79,7 +75,7 @@ int main(int argc, char *argv[]){
     }
     else
     {
-        printf("Ergebnis: falsch / Race Condition sichtbar\n");
+        printf("Ergebnis: falsch\n");
     }
 
     free(thread_ids);

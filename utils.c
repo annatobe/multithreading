@@ -7,7 +7,7 @@
 void *worker_run(void *arg){
 
     (void)arg;
-    for (int i = 0; i < runs; i++)
+    for (long long i = 0; i < runs; i++)
     {
         data_increment();
     }
@@ -20,7 +20,7 @@ double get_time_seconds(void)
     clock_gettime(CLOCK_MONOTONIC, &ts);
 
     return ts.tv_sec + ts.tv_nsec / 1000000000.0;
-}//gibt den Fehlercod
+}//gibt den Fehlercode aus
 void print_error(Results result)
 {
     if (result == WRONG_AR_NUMBER)

@@ -3,13 +3,10 @@
 //
 #include "header.h"
 #include <stdbool.h>
-#include <string.h>
 #include <stdlib.h>
-#include <stdio.h>
-#include <ctype.h>
 char *program;
 int threads;
-int runs;
+long long runs;
 int active;
 bool activated; //0 nicht geschuetzt, 1 geschuetzt
 
@@ -21,9 +18,9 @@ Results parse(int argc, char *argv[])
         return WRONG_AR_NUMBER;
     }
     program = argv[0];
-    threads = atoi(argv[1]);
-    runs = atoi(argv[2]);
-    active = atoi(argv[3]);
+    threads = atoll(argv[1]);
+    runs = atoll(argv[2]);
+    active = atoll(argv[3]);
     if (active== 1)
     {
         activated = true;
