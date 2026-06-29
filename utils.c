@@ -2,7 +2,8 @@
 #include <stdlib.h>
 #include <time.h>
 #include <stdio.h>
-//
+//Funktion die von jedem Thread ausgefuehrt wird
+//jeder Thread erhoeht Zaehler runs-mal
 void *worker_run(void *arg){
 
     (void)arg;
@@ -12,14 +13,14 @@ void *worker_run(void *arg){
     }
     return NULL;
 }
-//mmisst die aktue
+//misst die aktuelle Zeit inn Sekunden
 double get_time_seconds(void)
 {
     struct timespec ts;
     clock_gettime(CLOCK_MONOTONIC, &ts);
 
     return ts.tv_sec + ts.tv_nsec / 1000000000.0;
-}
+}//gibt den Fehler
 void print_error(Results result)
 {
     if (result == WRONG_AR_NUMBER)
